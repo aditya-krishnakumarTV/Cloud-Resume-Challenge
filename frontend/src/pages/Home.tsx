@@ -1,13 +1,13 @@
 function Home() {
   return (
     <>
-      <div className="bg-blue-200">
+      <div className="bg-gray-100">
         <div className="max-w-7xl mx-auto p-10">
           <div className="flex flex-col md:flex-row">
             <div className="flex-1 p-8">
               <img
-                className="rounded-3xl border-2 border-white shadow-md shadow-white"
-                src="../../public/workspace.jpg"
+                className="rounded-3xl border-2 border-blue-100 shadow-lg shadow-blue-200"
+                src="/workspace.jpg"
               />
             </div>
 
@@ -16,8 +16,10 @@ function Home() {
                 <h1 className="text-4xl font-bold text-gray-900">
                   Aditya Krishnakumar
                 </h1>
-                <p>Software Developer</p>
-                <p>
+                <p className="text-2xl font-bold text-gray-700">
+                  Software Developer
+                </p>
+                <p className="text-lg text-gray-700">
                   A results-driven Software Developer, passionate about creating
                   impactful and innovative solutions.
                 </p>
