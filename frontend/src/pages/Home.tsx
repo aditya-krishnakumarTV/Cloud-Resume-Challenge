@@ -23,6 +23,15 @@ function Home() {
                   A results-driven Software Developer, passionate about creating
                   impactful and innovative solutions.
                 </p>
+
+                <a
+                  className="bg-blue-500 hover:bg-blue-400 transition ease-in-out text-white font-medium rounded-lg shadow-lg shadow-blue-400 duration-400 px-3 py-3 inline-block mt-4"
+                  title="Download CV"
+                  download="Aditya Krishnakumar CV.pdf"
+                  href="../../public/Aditya_Krishnakumar_CV.pdf"
+                >
+                  Download CV
+                </a>
               </div>
             </div>
           </div>
