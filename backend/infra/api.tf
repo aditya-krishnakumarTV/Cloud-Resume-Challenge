@@ -56,8 +56,8 @@ resource "aws_api_gateway_deployment" "api_deployment" {
 }
 
 # Create a stage for the API deployment
-resource "aws_api_gateway_stage" "prod" {
-  stage_name    = "prod"
+resource "aws_api_gateway_stage" "dev_stage" {
+  stage_name    = "dev"
   rest_api_id   = aws_api_gateway_rest_api.api_gateway.id
   deployment_id = aws_api_gateway_deployment.api_deployment.id
 }

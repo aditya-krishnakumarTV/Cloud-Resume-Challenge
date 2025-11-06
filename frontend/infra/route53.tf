@@ -2,6 +2,7 @@ locals {
   s3_origin_id = "s3_${aws_s3_bucket.adi-cloud-resume-challenge-bucket.bucket}"
 }
 
+# Retrive the hosted zone from Route53
 data "aws_route53_zone" "hosted_zone" {
   name = var.domain_name
 }
@@ -21,6 +22,7 @@ resource "aws_route53_record" "resume-cloudfront" {
   }
 }
 
+# This resource creates an ACM certificate for the domain name specified in the variables.
 resource "aws_acm_certificate" "resume-acm-certificate" {
   domain_name       = var.domain_name
   validation_method = "DNS"

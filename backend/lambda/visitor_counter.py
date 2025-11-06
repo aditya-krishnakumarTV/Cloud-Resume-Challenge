@@ -4,7 +4,7 @@ from decimal import Decimal
 
 TABLE_NAME = "Cloud-Resume-DynamoDB-visitor-counter"
 ITEM_PK_NAME = "counter_id"
-ITEM_PK_VALUE = "0"
+ITEM_PK_VALUE = "Count"
 COUNTER_ATTR_NAME = "visitor_count"
 
 
