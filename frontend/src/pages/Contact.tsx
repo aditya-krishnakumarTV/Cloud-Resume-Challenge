@@ -1,6 +1,27 @@
-import { Phone, Mail, MapPin, Github, Linkedin, Download } from "lucide-react";
+import { Phone, Mail, MapPin, Github, Linkedin } from "lucide-react";
+import { useEffect, useState } from "react";
+import { getVisitorCount } from "../api/visitorCounter";
 
 function Contact() {
+  const [visitorCount, setVisitorCount] = useState<number | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchVisitorCount = async () => {
+      try {
+        const data = await getVisitorCount();
+        console.log("Visitor count data:", data);
+        setVisitorCount(data);
+      } catch (error) {
+        console.error("Failed to load visitor count:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchVisitorCount();
+  }, []);
+
   const contactInfo = [
     {
       icon: Phone,
@@ -39,10 +60,17 @@ function Contact() {
       <div className="max-w-7xl mx-auto p-10">
         <div className="text-center space-y-4">
           <h1 className="text-4xl font-bold text-white">Contact Me</h1>
-          <p className="text-lg text-white mb-8">
+          <p className="text-lg text-white">
             I'd love to hear from you! Whether you have a question, want to
             collaborate, or just want to say hello, feel free to reach out.
           </p>
+          {loading ? (
+            <p className="text-md text-white mb-8">Loading visitor count...</p>
+          ) : (
+            <p className="text-md text-white mb-8">
+              You are visitor #{visitorCount?.toLocaleString() ?? "0"}
+            </p>
+          )}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 space-y-6 gap-8">

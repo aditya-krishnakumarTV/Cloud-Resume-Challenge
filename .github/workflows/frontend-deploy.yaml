@@ -33,16 +33,5 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-south-1
 
-      # - name: Install Terraform
-      #   uses: hashicorp/setup-terraform@v1
-
-      # - name: Initialize Terraform
-      #   run: terraform init
-      #   working-directory: ./frontend/infra
-
-      # - name: Apply Terraform configuration
-      #   run: terraform apply -auto-approve
-      #   working-directory: ./frontend/infra
-
       - name: Sync frontend files to S3
         run: aws s3 sync ./frontend/dist s3://adi-cloud-resume-challenge-bucket --delete
