@@ -23,14 +23,12 @@ dist-ssr
 *.sln
 *.sw?
 
-# Environment files
-.env
-.env.local
-.env.*.local
-
 # Terraform
 *.tfstate
 *.tfstate.*
 .terraform/
 *.tfvars
 .terraform.lock.hcl
+
+# Zip files
+*.zip
