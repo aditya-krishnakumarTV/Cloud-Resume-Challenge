@@ -23,7 +23,7 @@ function Info() {
                 A results-driven Software Developer, adept at leveraging
                 technical expertise to achieve organizational and personal
                 milestones. I am passionate about continuous learning and
-                proactively embrace new technologies to deliver impactful and
+                proactively embracing new technologies to deliver impactful and
                 innovative solutions.
               </p>
             </div>
