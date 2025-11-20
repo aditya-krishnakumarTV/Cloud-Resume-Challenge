@@ -37,4 +37,10 @@ jobs:
 
       - name: Get API URL
         working-directory: ./backend/infra
-        run: echo "VITE_API_URL=${terraform output -raw api_gateway_url)}" > ./frontend/.env
+        run: echo "$(terraform output -raw api_gateway_url)" > api_url.txt
+
+      - name: Upload API URL artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: api-url
+          path: ./backend/infra/api_url.txt
