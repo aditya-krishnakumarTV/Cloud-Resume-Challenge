@@ -29,7 +29,7 @@ jobs:
           aws-region: ap-south-1
 
       - name: Download API URL artifact
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v4
         with:
           name: api-url
           path: ./tmp
