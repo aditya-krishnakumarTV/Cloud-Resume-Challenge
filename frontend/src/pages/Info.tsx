@@ -24,7 +24,7 @@ function Info() {
                 technical expertise to achieve organizational and personal
                 milestones. I am passionate about continuous learning and
                 proactively embracing new technologies to deliver impactful and
-                innovative solutions.
+                innovative solutions
               </p>
             </div>
           </div>
