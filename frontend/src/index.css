@@ -5,3 +5,18 @@
 @theme {
   --font-signature: "Momo Signature", cursive;
 }
+
+@layer base {
+  ::-webkit-scrollbar {
+    width: 9px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: white;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+}
