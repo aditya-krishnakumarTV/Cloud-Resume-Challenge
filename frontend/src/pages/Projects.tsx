@@ -1,3 +1,5 @@
+import CloudResumeSR from "../assets/cloud-resume-sr.mp4";
+
 import { Github, Link } from "lucide-react";
 
 function Projects() {
@@ -9,14 +11,15 @@ function Projects() {
       codeLink:
         "https://github.com/aditya-krishnakumarTV/Cloud-Resume-Challenge",
       projectLink: null,
-      projectScreenshot: "/cloud-resume-ss.png",
+      projectScreenshot: null,
+      projectScreenshotVideo: CloudResumeSR,
     },
   ];
 
   return (
     <div className="bg-gray-300">
-      <div className="max-w-7xl mx-auto p-6 md:p-10">
-        <div className="text-center space-y-4 p-4 md:p-8">
+      <div className="max-w-7xl mx-auto p-10">
+        <div className="text-center space-y-4 p-8">
           <h1 className="text-4xl font-bold font-signature text-gray-900">
             Project Showcase
           </h1>
@@ -60,10 +63,24 @@ function Projects() {
               </div>
 
               <div className="flex-1">
-                <img
-                  src={project.projectScreenshot}
-                  className="h-60 mx-auto my-10 object-cover rounded-lg shadow-lg shadow-gray-500"
-                />
+                {project.projectScreenshotVideo &&
+                  !project.projectScreenshot && (
+                    <video
+                      src={project.projectScreenshotVideo}
+                      className="h-auto lg:h-60 mx-auto my-10 object-contain rounded-lg shadow-lg shadow-gray-500"
+                      autoPlay
+                      loop
+                      muted
+                    />
+                  )}
+
+                {!project.projectScreenshotVideo &&
+                  project.projectScreenshot && (
+                    <img
+                      src={project.projectScreenshot}
+                      className="h-60 mx-auto my-10 object-cover rounded-lg shadow-lg shadow-gray-500"
+                    />
+                  )}
               </div>
             </div>
           </div>

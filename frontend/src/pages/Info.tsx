@@ -1,3 +1,5 @@
+import profilePic from "../assets/profilepic.jpg";
+
 function Info() {
   return (
     <div className="bg-white">
@@ -6,7 +8,7 @@ function Info() {
           <div className="flex-1 p-8">
             <img
               className="rounded-full w-100 shadow-lg shadow-gray-500"
-              src="/profilepic.jpg"
+              src={profilePic}
             />
           </div>
           <div className="flex-1"></div>

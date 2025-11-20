@@ -1,3 +1,5 @@
+import AWSCloudCert from "../assets/aws-certified-cloud-practitioner.png";
+
 function SkillsAndCertifications() {
   const skills = [
     {
@@ -80,7 +82,7 @@ function SkillsAndCertifications() {
                 rel="noopener noreferrer"
               >
                 <img
-                  src="/aws-certified-cloud-practitioner.png"
+                  src={AWSCloudCert}
                   alt="AWS Certified Cloud Practitioner"
                   className="h-35"
                 />
