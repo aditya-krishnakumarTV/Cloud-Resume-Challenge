@@ -76,6 +76,6 @@ resource "aws_lambda_function" "visitor_counter_lambda" {
   }
 
   tags = {
-    Name = "Cloud_resume_visitor_counter_lambda"
+    Name = "Cloud_resume_visitor_counter_lambda_function"
   }
 }
