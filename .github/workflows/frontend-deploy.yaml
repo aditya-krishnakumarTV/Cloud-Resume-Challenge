@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "frontend/**"
+      - "!frontend/infra/**"
 
 jobs:
   deploy-frontend:
@@ -29,10 +32,6 @@ jobs:
         uses: hashicorp/setup-terraform@v2
         with:
           terraform_version: "1.5.0"
-
-      - name: Run update-config script (PowerShell)
-        run: ./update-config.ps1
-        shell: pwsh
 
       - name: Install dependencies
         run: npm install
