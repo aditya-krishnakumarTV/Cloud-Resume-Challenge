@@ -28,17 +28,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-south-1
 
-      - name: Download API URL artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: api-url
-          path: ./tmp
-
-      - name: Read API URL and create .env
-        run: |
-          API_URL=$(cat ./tmp/api_url.txt)
-          echo "VITE_API_URL=${API_URL}" > ./frontend/.env
-
       - name: Install dependencies
         run: npm install
         working-directory: ./frontend
