@@ -6,6 +6,8 @@ import Footer from "../pages/Footer";
 
 import { getVisitorCount } from "../api/visitorCounter";
 
+import ResumePDF from "../assets/Aditya_Krishnakumar_CV.pdf";
+
 function Contact() {
   const [visitorCount, setVisitorCount] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
@@ -123,7 +125,7 @@ function Contact() {
                 <a
                   className="text-sm"
                   download="Aditya Krishnakumar CV.pdf"
-                  href="/Aditya_Krishnakumar_CV.pdf"
+                  href={ResumePDF}
                 >
                   <p className="font-medium text-lg font-signature">Resume</p>
                   Get my CV here
