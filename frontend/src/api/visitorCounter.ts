@@ -1,5 +1,5 @@
 // API endpoint configuration from environment variables
-const API_BASE_URL = import.meta.env.VITE_API_URL;
+const API_BASE_URL = 'https://pu360p4kh9.execute-api.us-east-1.amazonaws.com/dev';
 
 if (!API_BASE_URL) {
     console.error('API_BASE_URL not configured. Please run update-config.ps1 to set up environment variables.');
