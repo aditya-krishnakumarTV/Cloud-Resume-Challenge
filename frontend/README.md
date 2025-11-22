@@ -145,5 +145,3 @@ To remove the infrastructure and stop costs:
   * `infra/terraform.tfvars`
 
 Ensure these are listed in your `.gitignore` file.
-
-```
