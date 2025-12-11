@@ -1,0 +1,45 @@
+CANDIDATE PROFILE: Aditya Krishnakumar
+PROFESSION: Software Developer
+LOCATION: Pune, Maharashtra
+TOTAL EXPERIENCE: 3 years (Angular Developer at MSM Unify)
+CONTACT: +91-7972914071
+EMAIL: adityakrishnakumar12@gmail.com
+LINKEDIN: https://www.linkedin.com/in/aditya-krishnakumar-335530221/
+GITHUB: https://github.com/aditya-krishnakumarTV
+
+SUMMARY:
+Results-driven Software Developer with 3 years of experience in building responsive, scalable web applications. Deep expertise in frontend technologies (React, Angular). Recently upskilled in Cloud and DevOps practices, proficient in orchestrating cloud infrastructure using AWS and Terraform (IaC), and automating deployment pipelines via GitHub Actions. Eager to learn new technologies and solve complex problems efficiently to meet organizational goals.
+
+WORK EXPERIENCE:
+1. Angular Developer, MSM Unify (JUL 2022 - JUN 2025)
+   * Developed dynamic and responsive web applications using Angular and TypeScript, including modular components and real-time dashboards.
+   * Enhanced performance and user experience (UX) across key modules in the MSM Unify platform by rewriting legacy components with modern Angular best practices.
+   * Integrated secure and reliable payment gateways (Razorpay, BillDesk).
+   * Collaborated with product managers and backend teams to design and implement scalable UI solutions.
+   * Applied route guards, resolvers, and state management to create seamless navigation.
+   * Led peer code reviews and contributed to maintaining clean and modular code.
+   * Designed and implemented interactive data tables with DevExtreme Data Grid.
+
+2. Angular Developer - Intern, MSM Unify (JAN 2022 - JUL 2022)
+   * Contributed to major frontend revamp projects.
+   * Learned and applied key frontend principles, agile workflows, and testing practices.
+
+EDUCATION:
+* BSC Computer Science, Pune University (2018-2021) - Distinction (82%)
+* HSC, Maharashtra State Board (2016-2018) - Distinction (81%)
+* SSC, Maharashtra State Board (2015-2016) - Distinction (89%)
+
+TECHNICAL SKILLS:
+* Cloud & DevOps: AWS Services, Terraform (IaC) & CloudFormation, GitHub Actions (CI/CD), Docker
+* Languages: JavaScript, TypeScript, Python, HTML, CSS
+* Frontend Frameworks: React.js, Angular (v2 to v18)
+* Styling & UI: TailwindCSS, Angular Material, Bootstrap
+
+CERTIFICATIONS:
+* AWS Cloud Practitioner
+
+LANGUAGES SPOKEN:
+* English (Professional)
+* Hindi (Fluent)
+* Marathi (Conversational)
+* Malayalam (Conversational)
