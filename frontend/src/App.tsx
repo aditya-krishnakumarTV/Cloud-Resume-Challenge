@@ -3,6 +3,7 @@ import Info from "./pages/Info";
 import SkillsAndCertifications from "./pages/SkillsAndCertifications";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
+import Chatbot from "./pages/ChatBot";
 
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -33,6 +34,14 @@ function App() {
         },
       });
     });
+
+    gsap.from("#chatBot", {
+      opacity: 0,
+      display: "none",
+      duration: 1,
+      delay: 0.5,
+      ease: "power2.in",
+    });
   }, []);
 
   return (
@@ -51,6 +60,10 @@ function App() {
       </div>
       <div id="contact">
         <Contact />
+      </div>
+
+      <div id="chatBot">
+        <Chatbot />
       </div>
     </main>
   );
