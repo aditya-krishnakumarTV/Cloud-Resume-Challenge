@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://4w3r9xzaif.execute-api.us-east-1.amazonaws.com/dev';
+const API_BASE_URL = 'https://sbj0rul9pi.execute-api.us-east-1.amazonaws.com/dev';
 
 // Sends a message to the chatbot API and retrieves the response
 export const sendMessageToChatBot = async (message: string): Promise<string> => {

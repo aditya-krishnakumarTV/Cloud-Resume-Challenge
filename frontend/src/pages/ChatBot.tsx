@@ -16,6 +16,8 @@ interface User_Message {
 
 const Chatbot = () => {
   const [userMessage, setUserMessage] = useState("");
+
+  const [msgLoading, setmsgLoading] = useState(false);
   const [userMessages, setUserMessages] = useState<User_Message[]>([]);
 
   useGSAP(() => {
@@ -88,6 +90,8 @@ const Chatbot = () => {
     ]);
 
     try {
+      setmsgLoading(true);
+
       const responseMessage = await sendMessageToChatBot(message);
 
       setUserMessages((prevMessages) => [
@@ -96,6 +100,8 @@ const Chatbot = () => {
       ]);
     } catch (error) {
       console.error("Error sending message to chatbot API:", error);
+    } finally {
+      setmsgLoading(false);
     }
   };
 
@@ -118,7 +124,9 @@ const Chatbot = () => {
       <div id="chatDialog" className={chatDialogClass}>
         <div className="flex flex-col space-y-2 p-4 h-full">
           <div className="flex items-center justify-between">
-            <h1 className="font-signature">Adi-Bot</h1>
+            <h1 className="text-sm md:text-lg font-signature">
+              Hey👋!! It's me, Aditya!
+            </h1>
             <button
               className="text-gray-500 hover:text-gray-800 transition duration-300 text-xl mb-2"
               onClick={chatDialogCloseClick}
@@ -164,13 +172,25 @@ const Chatbot = () => {
                     </div>
                   </div>
                 ))}
+              {msgLoading && (
+                <div className="flex justify-start">
+                  <div className="w-auto mb-4 p-2 rounded-lg bg-gray-500 text-white">
+                    <p className="text-sm italic">Aditya is typing...</p>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 
           <div className="flex flex-1 flex-row gap-1">
             <input
               type="text"
-              className="w-full p-2 border border-gray-300 rounded-lg"
+              className={
+                "w-full p-2 border border-gray-300 rounded-lg " +
+                (msgLoading ? "opacity-60 cursor-not-allowed" : "")
+              }
+              disabled={msgLoading}
+              aria-disabled={msgLoading}
               placeholder="Type your message..."
               value={userMessage}
               onChange={(e) => setUserMessage(e.target.value)}
@@ -181,13 +201,20 @@ const Chatbot = () => {
               }}
             />
             <button
-              className="bg-black p-2 rounded-lg hover:bg-gray-700 transition duration-300"
+              className={
+                "bg-black p-2 rounded-lg transition duration-300 " +
+                (msgLoading
+                  ? "opacity-60 cursor-not-allowed"
+                  : "hover:bg-gray-700")
+              }
               title="Send"
               onClick={() => {
+                if (msgLoading) return;
                 if (userMessage.trim() !== "") {
                   sendMessage(userMessage);
                 }
               }}
+              disabled={msgLoading || userMessage.trim() === ""}
             >
               <SendHorizonal className="h-5 text-white" />
             </button>
