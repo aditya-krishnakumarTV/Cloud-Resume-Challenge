@@ -1,10 +1,11 @@
 import chatBotProfile from "../assets/chat-bot-profile.png";
+import chatBotBlinking from "../assets/chat-bot-blinking.png";
 
 import { useEffect, useState } from "react";
 
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import { SendHorizonal } from "lucide-react";
+import { SendHorizonal, Trash } from "lucide-react";
 
 import { sendMessageToChatBot } from "../api/chatBotComms";
 
@@ -15,6 +16,9 @@ interface User_Message {
 }
 
 const Chatbot = () => {
+  const [chatBotProfileImage, setchatBotProfileImage] =
+    useState(chatBotProfile);
+
   const [userMessage, setUserMessage] = useState("");
 
   const [msgLoading, setmsgLoading] = useState(false);
@@ -25,6 +29,13 @@ const Chatbot = () => {
     if (storedMessages) {
       setUserMessages(JSON.parse(storedMessages));
     }
+
+    setInterval(() => {
+      setchatBotProfileImage(chatBotBlinking);
+      setTimeout(() => {
+        setchatBotProfileImage(chatBotProfile);
+      }, 300);
+    }, 3000);
   }, []);
 
   useGSAP(() => {
@@ -88,6 +99,11 @@ const Chatbot = () => {
       );
   };
 
+  const clearChat = () => {
+    setUserMessages([]);
+    localStorage.removeItem("chatMessages");
+  };
+
   const sendMessage = async (message: string) => {
     setUserMessage("");
 
@@ -124,20 +140,34 @@ const Chatbot = () => {
     <div className="fixed bottom-4 right-4 z-20">
       <img
         id="chatButton"
-        src={chatBotProfile}
+        src={chatBotProfileImage}
         className={chatButtonClass}
         onClick={handleChatButtonClick}
         alt="Bot Adi"
+        title="Chat with me!"
       />
 
       <div id="chatDialog" className={chatDialogClass}>
         <div className="flex flex-col space-y-2 p-4 h-full">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
             <h1 className="text-sm md:text-lg font-signature">
               Hey👋!! It's me, Aditya!
             </h1>
+
+            <div className="grow" />
+
+            {userMessages.length > 0 && (
+              <button
+                className="text-xs text-gray-500 italic cursor-pointer mb-1 hover:text-gray-800 transition duration-300"
+                onClick={clearChat}
+                title="Clear Chat"
+              >
+                <Trash className="inline h-4 mb-0.5" />
+              </button>
+            )}
+
             <button
-              className="text-gray-500 hover:text-gray-800 transition duration-300 text-xl mb-2"
+              className="text-gray-500 hover:text-gray-800 transition duration-300 text-xl mb-2 cursor-pointer"
               onClick={chatDialogCloseClick}
               title="Close"
             >
@@ -145,7 +175,7 @@ const Chatbot = () => {
             </button>
           </div>
 
-          <div className="flex-5">
+          <div className="flex-5 overflow-hidden">
             <div className="overflow-y-auto h-45 p-2">
               {userMessages.length === 0 && (
                 <>
@@ -211,7 +241,7 @@ const Chatbot = () => {
             />
             <button
               className={
-                "bg-black p-2 rounded-lg transition duration-300 " +
+                "bg-black p-2 rounded-lg cursor-pointer transition duration-300 " +
                 (msgLoading
                   ? "opacity-60 cursor-not-allowed"
                   : "hover:bg-gray-700")
