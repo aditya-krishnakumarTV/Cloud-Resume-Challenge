@@ -1,6 +1,6 @@
 import chatBotProfile from "../assets/chat-bot-profile.png";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -19,6 +19,13 @@ const Chatbot = () => {
 
   const [msgLoading, setmsgLoading] = useState(false);
   const [userMessages, setUserMessages] = useState<User_Message[]>([]);
+
+  useEffect(() => {
+    const storedMessages = localStorage.getItem("chatMessages");
+    if (storedMessages) {
+      setUserMessages(JSON.parse(storedMessages));
+    }
+  }, []);
 
   useGSAP(() => {
     gsap.to("#chatButton", {
@@ -102,6 +109,8 @@ const Chatbot = () => {
       console.error("Error sending message to chatbot API:", error);
     } finally {
       setmsgLoading(false);
+
+      localStorage.setItem("chatMessages", JSON.stringify(userMessages));
     }
   };
 
