@@ -1,4 +1,5 @@
 import AWSCloudCert from "../assets/aws-certified-cloud-practitioner.png";
+import AWSAICert from "../assets/aws-certified-ai-practitioner.png";
 
 function SkillsAndCertifications() {
   const skills = [
@@ -22,6 +23,27 @@ function SkillsAndCertifications() {
         "GitHub Actions (CI/CD)",
         "Docker",
       ],
+    },
+  ];
+
+  const certificates = [
+    {
+      title: "AWS Certified Cloud Practitioner",
+      image: AWSCloudCert,
+      link: "https://www.credly.com/badges/0c7dd0ca-1464-4d93-ba6e-0cd00776be5d/public_url",
+      issueDate: "Sep 2025",
+      validUntil: "Sep 2028",
+      description:
+        "Validates overall understanding of AWS Cloud, its services, and basic architectural best practices.",
+    },
+    {
+      title: "AWS Certified AI Practitioner",
+      image: AWSAICert,
+      link: "https://www.credly.com/badges/bab3f0de-c41a-4112-a88c-ada447a1c6a6/public_url",
+      issueDate: "Jan 2026",
+      validUntil: "Jan 2029",
+      description:
+        "Validates knowledge of AI/ML and Gen AI concepts and AWS services related to AI/ML and Gen AI solutions.",
     },
   ];
 
@@ -73,32 +95,29 @@ function SkillsAndCertifications() {
             certifications
           </p>
         </div>
-        <div className="flex flex-col md:flex-row justify-center items-center space-y-6 p-8">
-          <div className="w-full p-8 rounded-lg bg-white transition hover:-translate-y-1 hover:shadow-lg shadow-gray-500 ease-in-out duration-400">
-            <div className="flex flex-row justify-center items-center flex-wrap gap-10">
-              <a
-                href="https://www.credly.com/badges/0c7dd0ca-1464-4d93-ba6e-0cd00776be5d/public_url"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src={AWSCloudCert}
-                  alt="AWS Certified Cloud Practitioner"
-                  className="h-35"
-                />
-              </a>
-              <div className="space-y-4">
-                <h1 className="text-center text-lg font-medium font-signature">
-                  AWS Certified Cloud Practitioner | Sep 2025
-                </h1>
-                <p className="text-center text-gray-600">
-                  Validates overall understanding of AWS Cloud, its services,
-                  and basic architectural best practices.
-                </p>
+
+        {certificates.map((cert, index) => (
+          <div
+            className="flex flex-col md:flex-row justify-center items-center space-y-6 p-4 mt-4"
+            key={index}
+          >
+            <div className="w-full p-8 rounded-lg bg-white transition hover:-translate-y-1 hover:shadow-lg shadow-gray-500 ease-in-out duration-400">
+              <div className="flex flex-row justify-center items-center flex-wrap gap-10">
+                <a href={cert.link} target="_blank" rel="noopener noreferrer">
+                  <img src={cert.image} alt={cert.title} className="h-35" />
+                </a>
+                <div className="space-y-4">
+                  <h1 className="text-center text-lg font-medium font-signature">
+                    {cert.title} | {cert.issueDate} - {cert.validUntil}
+                  </h1>
+                  <p className="text-center text-gray-600">
+                    {cert.description}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );
