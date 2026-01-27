@@ -30,12 +30,21 @@ const Chatbot = () => {
       setUserMessages(JSON.parse(storedMessages));
     }
 
-    setInterval(() => {
+    const blinkingAnimation = setInterval(() => {
       setchatBotProfileImage(chatBotBlinking);
+
+      const randomDelay = Math.floor(Math.random() * 300) + 200; // Random delay between 200ms to 500ms
+
       setTimeout(() => {
         setchatBotProfileImage(chatBotProfile);
-      }, 300);
+      }, randomDelay);
     }, 3000);
+
+    return () => {
+      if (blinkingAnimation) {
+        clearInterval(blinkingAnimation);
+      }
+    };
   }, []);
 
   useGSAP(() => {
