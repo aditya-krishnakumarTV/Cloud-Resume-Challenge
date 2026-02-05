@@ -7,6 +7,8 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { SendHorizonal, Trash } from "lucide-react";
 
+import ReactMarkdown from "react-markdown";
+
 import { sendMessageToChatBot } from "../api/chatBotComms";
 
 interface User_Message {
@@ -47,6 +49,12 @@ const Chatbot = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (userMessages.length > 0) {
+      localStorage.setItem("chatMessages", JSON.stringify(userMessages));
+    }
+  }, [userMessages]);
+
   useGSAP(() => {
     gsap.to("#chatButton", {
       y: -50,
@@ -81,7 +89,7 @@ const Chatbot = () => {
           display: "block",
           ease: "back.out",
         },
-        "0.8"
+        "0.8",
       );
   };
 
@@ -104,7 +112,7 @@ const Chatbot = () => {
           // y: 0,
           ease: "back.out",
         },
-        "0.8"
+        "0.8",
       );
   };
 
@@ -134,8 +142,6 @@ const Chatbot = () => {
       console.error("Error sending message to chatbot API:", error);
     } finally {
       setmsgLoading(false);
-
-      localStorage.setItem("chatMessages", JSON.stringify(userMessages));
     }
   };
 
@@ -216,7 +222,22 @@ const Chatbot = () => {
                           : "w-auto mb-4 p-2 rounded-lg bg-gray-500 text-white"
                       }
                     >
-                      <p className="text-sm">{msg.content}</p>
+                      <div className="text-sm">
+                        <ReactMarkdown
+                          components={{
+                            a: ({ node, ...props }) => (
+                              <a
+                                {...props}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="underline font-bold hover:text-blue-300"
+                              />
+                            ),
+                          }}
+                        >
+                          {msg.content}
+                        </ReactMarkdown>
+                      </div>
                     </div>
                   </div>
                 ))}
