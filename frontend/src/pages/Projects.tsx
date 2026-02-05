@@ -1,21 +1,8 @@
-import CloudResumeSR from "../assets/cloud-resume-sr.mp4";
-
 import { Github, Link } from "lucide-react";
 
-function Projects() {
-  const projectLists = [
-    {
-      title: "Cloud Resume Challenge",
-      description:
-        "This project is built to practice cloud concepts and related tools like GitHub Actions for CI/CD, Terraform for infrastructure-as-code, and a small backend written in Python/JavaScript. It follows the Cloud Resume Challenge by Forrest Brazeal.",
-      codeLink:
-        "https://github.com/aditya-krishnakumarTV/Cloud-Resume-Challenge",
-      projectLink: null,
-      projectScreenshot: null,
-      projectScreenshotVideo: CloudResumeSR,
-    },
-  ];
+import { projectLists } from "../data/projectLists";
 
+function Projects() {
   return (
     <div className="bg-gray-300">
       <div className="max-w-7xl mx-auto p-10">
